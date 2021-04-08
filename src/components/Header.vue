@@ -2,35 +2,27 @@
   <header class="header">
     <h1 class="header__ttl">タスク管理アプリ</h1>
     <div class="header__menu">
-      <router-link to="/" class="header__link">Home</router-link>
-      <router-link to="/about" class="header__link">About</router-link>
-      <button
-        v-if="$store.state.loginUser"
-        class="header__link"
-        @click="logout"
-      >
-        Logout
-      </button>
-      <router-link v-else to="/login" class="header__link">Login</router-link>
+      <button v-if="$store.state.loginUser" class="header__link" @click="logout">ログアウト</button>
+      <!-- <router-link v-else to="/login" class="header__link">ログイン</router-link> -->
     </div>
   </header>
 </template>
 
 <script>
-  export default {
-    methods: {
-      logout() {
-        this.$store.dispatch("logout");
-      },
-    },
-  };
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .header {
   position: sticky;
   top: 0;
-  background-color: #1876d1;
+  background-color: black;
   padding: 1rem 3rem;
   z-index: 999;
   display: flex;
@@ -43,12 +35,15 @@
   }
   &__link {
     color: #fff;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     text-decoration: none;
     background-color: transparent;
     border: none;
     outline: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    cursor: hand;
     &:not(:first-child) {
       margin-left: 2rem;
     }
